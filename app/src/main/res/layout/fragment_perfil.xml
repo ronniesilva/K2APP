@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:id="@+id/svPerfil"
+    android:layout_gravity="top|center"
+    android:background="@android:color/transparent"
+    android:paddingRight="1dp"
+    android:visibility="visible"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/sliderImages"
+            android:layout_width="match_parent"
+            android:layout_height="285dp"
+            custom:pager_animation="Accordion"
+            custom:auto_cycle="false"
+            custom:indicator_visibility="visible" />
+
+        <com.daimajia.slider.library.Indicators.PagerIndicator
+            android:id="@+id/sliderCustomIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            custom:selected_color="#0095BF"
+            custom:unselected_color="#55333333"
+            custom:selected_drawable="@drawable/bird"
+            custom:shape="oval"
+            custom:selected_padding_left="5dp"
+            custom:selected_padding_right="5dp"
+            custom:unselected_padding_left="5dp"
+            custom:unselected_padding_right="5dp"
+            custom:selected_width="6dp"
+            custom:selected_height="6dp"
+            custom:unselected_width="6dp"
+            custom:unselected_height="6dp" />
+
+        <TextView
+            android:id="@+id/tvPerfilNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tvPerfilIdade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilMsgStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message Status"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilNascimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birth"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilOriSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexual Orientation"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPerfilTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telephone"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+</ScrollView>

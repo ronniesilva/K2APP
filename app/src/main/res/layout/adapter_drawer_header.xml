@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="@color/cl_colorPrimaryDark"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_header_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@android:color/transparent">
+
+        <!-- imagem de quem postou -->
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_dh_imageprofile"
+            android:src="@drawable/ic_launcher"
+            app:siBorderWidth="2dp"
+            app:siBorderColor="@color/cl_white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ll_header_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <!-- nome do usuario -->
+        <TextView
+            android:id="@+id/tv_dh_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:gravity="right"
+            android:textColor="@color/cl_graffiti"
+            style="@style/TextAppearance.AppCompat.Large" />
+
+        <!-- mensagem de status do usuario -->
+        <!--TextView
+            android:id="@+id/tv_dh_msguser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Message"
+            android:textColor="@color/cl_gray_black"
+            android:gravity="right"
+            style="@style/TextAppearance.AppCompat.Small" /-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/cl_colorAccent" />
+
+        <!-- emailOK do usuario -->
+        <TextView
+            android:id="@+id/tv_dh_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="emailOK"
+            android:textColor="@color/cl_graffiti"
+            android:gravity="right"
+            style="@style/TextAppearance.AppCompat.Small" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_white_gray"
+    android:elevation="5dp">
+
+    <!-- INICIO FEED -->
+    <LinearLayout
+        android:id="@+id/llMainBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/cl_white"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <!-- BOX HEAD -->
+        <LinearLayout
+            android:id="@+id/llBoxHeadFeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ivPostImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent">
+
+                <!-- imagem de quem postou -->
+                <!-- ImageView
+                    android:id="@+id/ivPostUserImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher" /-->
+
+                <!--
+                siBorderColor - border color
+                siBorderWidth - border width in dp
+                siBorderAlpha - alpha value of the border between 0.0-1.0
+                siRadius - corner radius in dp
+                siSquare - set width and height to the minimum of the given values true|false
+                -->
+                <com.github.siyamed.shapeimageview.RoundedImageView
+                    android:id="@+id/ivPostUserImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher"
+                    app:siRadius="6dp"
+                    app:siBorderColor="@color/cl_white"
+                    app:siSquare="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBoxHeadUserInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+                <!-- Nome de quem postou -->
+                <TextView
+                    android:id="@+id/tvPostUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+                <!-- BOX HEAD USER DIST + OLD TIME -->
+                <LinearLayout
+                    android:id="@+id/llBoxHeadDistOldTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivPostPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_feed_mapicon" />
+
+                    <!-- Distancia de quem postou esta de mim -->
+                    <TextView
+                        android:id="@+id/tvPostUserDist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/ivPostTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_feed_clock" />
+
+                    <TextView
+                        android:id="@+id/tvPostUserOldTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- BOX HEAD DENUNCIA -->
+            <LinearLayout
+                android:id="@+id/llBoxHeadDenuncia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <!-- menu de denuncia -->
+                <ImageView
+                    android:id="@+id/ivPostUserComplaint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_feed_overflow" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- End Box Header -->
+
+        <!-- PHOTO -->
+        <!-- Foto do post -->
+        <!-- com.android.volley.toolbox.NetworkImageView -->
+        <!--ImageView
+            android:id="@+id/ivPostImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|top"
+            android:scaleType="fitCenter"
+            android:src="@drawable/postimage_1x1px" /-->
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/ivPostImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/postimage_1x1px"
+            app:siRadius="6dp"
+            app:siBorderColor="@color/cl_white"
+            app:siSquare="true"/>
+
+        <!-- TEXT -->
+        <!-- texto do post -->
+        <TextView
+            android:id="@+id/tvPostText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPostImage"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="8dp" />
+
+        <!-- BOX FOOTER -->
+        <LinearLayout
+            android:id="@+id/llSubBoxFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvPostText"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <!-- Imagem do Like -->
+            <ImageView
+                android:id="@+id/ivPostLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2dp"
+                android:src="@drawable/ic_feed_like_off" />
+
+            <!-- Quantidade de likes -->
+            <TextView
+                android:id="@+id/tvPostLikeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <!-- Imagem da resposta -->
+                <ImageView
+                    android:id="@+id/ivReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/ic_feed_reply" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- End Box Footer -->
+    </LinearLayout>
+
+</RelativeLayout>

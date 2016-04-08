@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "k2app-81cd1",
+    "project_number": "426647074611",
+    "name": "k2app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426647074611:android:148058f7490d5e6c",
+        "client_id": "android:com.app.k2app",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.app.k2app",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426647074611-35tbqpv416a4iaskh3pb5u2bhp1tk6kv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.k2app",
+            "certificate_hash": "2D7530B0BA082384B3F86CC02C3C88C54C9E97E1"
+          }
+        },
+        {
+          "client_id": "426647074611-onnf3f8lu6q0qji52ljq8js66rjd0jtj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

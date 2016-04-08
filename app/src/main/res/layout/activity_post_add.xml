@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.k2app.activities.ActivityPostAdd">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tb_postAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_colorPrimary"
+        android:paddingTop="@dimen/app_bar_top_padding"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/svPostAdd"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top|center"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp">
+
+            <ImageView
+                android:id="@+id/ivPhotoImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button android:text="Gallery Photo"
+                    android:id="@+id/btGallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/cl_white"
+                    android:background="@drawable/selector_button_blue"/>
+
+                <Button android:text="Capture Photo"
+                    android:id="@+id/btPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/cl_white"
+                    android:background="@drawable/selector_button_blue"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:text="Write a text: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/etPostTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

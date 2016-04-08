@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity"    >
+
+    <!-- NEW POST -->
+    <item android:id="@+id/action_postadd"
+        android:icon="@mipmap/ic_cloud_upload_white_48dp"
+        android:title="post add"
+        android:orderInCategory="40"
+        app:showAsAction="always"/>
+
+</menu>

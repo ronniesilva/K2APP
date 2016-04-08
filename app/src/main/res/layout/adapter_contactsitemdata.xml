@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:divider="@color/cl_blue"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent">
+
+        <!-- imagem de quem postou -->
+        <!-- ImageView
+            android:id="@+id/ivContactUserImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher" / -->
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivContactUserImage"
+            android:src="@drawable/ic_launcher"
+            app:siBorderWidth="2dp"
+            app:siBorderColor="@color/cl_white"/>
+
+        <!-- com.github.siyamed.shapeimageview.BubbleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivContactUserImage"
+            android:src="@drawable/ic_launcher"
+            android:padding="2dp"
+            app:siArrowPosition="right"
+            app:siSquare="true"/ -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <!-- nome do usuario -->
+        <TextView
+            android:id="@+id/tvContactUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/cl_graffiti"
+            android:paddingBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvContactMsgStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

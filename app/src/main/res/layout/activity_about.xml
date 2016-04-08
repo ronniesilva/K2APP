@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cl_white_gray"
+    tools:context="com.app.k2app.activities.ActivityAbout"
+    android:gravity="center_horizontal">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tb_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_colorPrimary"
+        android:paddingTop="@dimen/app_bar_top_padding"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:paddingTop="30dp"
+        android:layout_alignBottom="@+id/textView"
+        android:src="@drawable/ic_launcher"/>
+
+    <TextView android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_about_appname" />
+
+    <TextView android:text="@string/app_version"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_about_appversion" />
+
+</LinearLayout>

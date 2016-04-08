@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_white"
+    android:padding="1dp">
+
+    <!-- icon -->
+    <ImageView
+        android:id="@+id/ivPostUserImage"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:contentDescription="icon"
+        />
+
+    <!--
+    siBorderColor - border color
+    siBorderWidth - border width in dp
+    siBorderAlpha - alpha value of the border between 0.0-1.0
+    siRadius - corner radius in dp
+    siSquare - set width and height to the minimum of the given values true|false
+    -->
+    <!--com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/ivPostUserImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher"
+        app:siRadius="2dp"
+        app:siBorderColor="@color/cl_white"
+        app:siSquare="true"/-->
+
+
+    <!-- title -->
+    <TextView
+        android:id="@+id/tvPostUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#30000000"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="#fff">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#30000000"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <TextView
+            android:id="@+id/item_dist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#fff">
+        </TextView>
+
+        <ImageView
+            android:id="@+id/ivQtdPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_qtdphoto"
+            android:paddingLeft="5dp"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/item_qtdPhotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:paddingLeft="2dp"
+            android:textColor="#fff">
+        </TextView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

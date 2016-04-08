@@ -1,0 +1,56 @@
+<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_colorPrimary"
+        android:paddingTop="@dimen/app_bar_top_padding"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.app.k2app.views.SlidingTabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tb_main"
+                android:background="?attr/colorPrimaryDark" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tabs"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"></android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/fragment_navigation_drawer"
+            android:name="com.app.k2app.fragments.FragmentNavigationDrawer"
+            android:layout_width="@dimen/nav_drawer"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navigation_drawer"
+            tools:layout="@layout/fragment_navigation_drawer" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
+

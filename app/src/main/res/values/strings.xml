@@ -1,0 +1,70 @@
+<resources>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="app_name">K2Pio</string>
+    <string name="app_version">Gpceta</string>
+    <string name="slogan">Approaching those near</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Main Slider -->
+    <string name="tab_1">Feed</string>
+    <string name="tab_2">In Reach</string>
+    <string name="tab_3">Contacts</string>
+    <string name="title_activity_post_add">K2PIO</string>
+
+    <!-- Activity: Login K2pio -->
+    <string name="lk2_tl_activity_cadastro_main">Cadastro Main Activity</string>
+    <string name="lk2_lb_username">Username:</string>
+    <string name="lk2_lb_passwd">Password:</string>
+    <string name="lk2_lb_passwdforget">Forgot password</string>
+    <string name="lk2_bt_logink2pio">Login</string>
+    <string name="lk2_bt_register">Register</string>
+
+
+    <!-- Perfil Slider -->
+    <string name="title_activity_perfil">Perfil</string>
+    <string name="tab_perfil_1">Perfil</string>
+    <string name="tab_perfil_2">Album</string>
+
+    <!-- Meu Perfil Slider -->
+    <string name="title_activity_meu_perfil">Meu Perfil</string>
+    <string name="tab_meu_perfil_1">Perfil</string>
+    <string name="tab_meu_perfil_2">Album</string>
+    <string name="tab_meu_perfil_3">Posts</string>
+
+
+    <!-- drawer -->
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="title_activity_filters">ActivityFilters</string>
+
+    <!--  menus -->
+    <string name="save">save</string>
+    <string name="save_message">Saved with success !</string>
+    <string name="error_filter_sex_blank">Enter witch sex !</string>
+    <string name="error_filter_oriSex_blank">Enter witch sexual orientation !</string>
+
+    <!--  Activities -->
+    <string name="filters_all">All</string>
+    <string name="filters_onlyMyContacts">Only my contacts</string>
+
+    <!--  Messages -->
+    <string name="noDataFeed">No data to display in Feed. Refine your filter!</string>
+    <string name="noDataInReach">No data to display in Reach. Refine your filter!</string>
+    <string name="noDataPerfil">No data to display in Perfil !</string>
+
+    <!-- Activity Settings -->
+    <string name="str_googleRevoke">Cancel Google permission to K2Pio application</string>
+
+    <!-- RangeSeekBar-->
+    <string name="demo_min_label">Min</string>
+    <string name="demo_max_label">Max</string>
+    <string name="title_activity_activity_about">ActivityAbout</string>
+    <string name="title_activity_activity_login">ActivityLogin</string>
+    <string name="title_activity_activity_settings">ActivitySettings</string>
+
+
+
+</resources>

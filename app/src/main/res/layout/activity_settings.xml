@@ -1,0 +1,39 @@
+<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_colorPrimary"
+        android:paddingTop="@dimen/app_bar_top_padding"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <!--
+
+        <TextView android:text="@string/str_googleRevoke" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingBottom="5dp"/>
+        <Button
+            android:id="@+id/btn_google_revoke_access"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google revoke access" />
+
+            -->
+    </LinearLayout>
+
+</LinearLayout>

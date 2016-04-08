@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Style/Theme -->
+    <color name="cl_colorPrimary">#0078be</color>
+    <color name="cl_colorPrimaryDark">#fff7f7f7</color>
+    <!-- Cor do componentes internos. Ex. Texteditor -->
+    <color name="cl_colorAccent">#0078be</color>
+    <color name="cl_colorBarHiglight">#fff7f7f7</color>
+    <!-- Acende a view clicada -->
+    <color name="cl_colorHighlight">#0078be</color>
+    <color name="cl_background">#fff7f7f7</color>
+
+    <color name="cl_textColor">#ff181818</color>
+    <color name="cl_colorControlNormal">#ffffff</color>
+
+
+    <!--  Swipe Refresh Layout -->
+    <color name="cl_srl_background">#f2f2f2</color>
+    <color name="cl_srl_primary">#0078be</color>
+    <color name="cl_srl_second">#0078be</color>
+    <color name="cl_srl_third">#0078be</color>
+    <color name="cl_srl_four">#0078be</color>
+
+    <!-- Colors Generics -->
+    <color name="cl_white">#ffffff</color>
+    <color name="cl_white_ice">#fffafafa</color>
+    <color name="cl_white_gray">#f2f2f2</color>
+    <color name="cl_gray">#ddd</color>
+    <color name="cl_graffiti">#ff2f2f2f</color>
+    <color name="cl_black">#000</color>
+    <color name="cl_gray_black">#ff747474</color>
+    <color name="cl_blue">#0078be</color>
+
+    <color name="cl_divider_contacts">#12000000</color>
+
+</resources>

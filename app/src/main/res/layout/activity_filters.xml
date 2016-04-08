@@ -1,0 +1,190 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_white_gray"
+    android:orientation="vertical"
+    tools:context="com.app.k2app.activities.ActivityPostAdd">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tb_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_colorPrimary"
+        android:paddingTop="@dimen/app_bar_top_padding"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show Post:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:background="@color/cl_gray"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbPostAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/filters_all" />
+
+                <RadioButton
+                    android:id="@+id/rbPostMyContacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filters_onlyMyContacts" />
+            </RadioGroup>
+
+            <!-- SELECT AGE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="Select a age:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <LinearLayout android:id="@+id/rangeSeekbar_placeholder"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@color/cl_gray"
+                android:transitionGroup="false" />
+
+            <!-- SELECT A SEX -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="Select a Sex:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:background="@color/cl_gray"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/tbFilterMens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/selector_gender_male"
+                    android:paddingRight="20dp"
+                    android:textOff="Hide"
+                    android:textOn="Show Mens" />
+
+                <ToggleButton
+                    android:id="@+id/tbFilterGirls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/selector_gender_female"
+                    android:paddingLeft="20dp"
+                    android:singleLine="false"
+                    android:textOff="Hide"
+                    android:textOn="Show Girls" />
+            </LinearLayout>
+
+            <!-- SELECT A SEXUAL ORIENTATION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="Select a Sexual Orientation:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutOriSex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:background="@color/cl_gray"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/tbFilterHetero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/selector_sexorient_hetero"
+                    android:paddingRight="5dp"
+                    android:textOff="Hide"
+                    android:textOn="Show Hetero" />
+
+                <ToggleButton
+                    android:id="@+id/tbFilterHomo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/selector_sexorient_homo"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="false"
+                    android:textOff="Hide"
+                    android:textOn="Show Homo" />
+
+                <ToggleButton
+                    android:id="@+id/tbFilterBi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/selector_sexorient_bisex"
+                    android:paddingLeft="5dp"
+                    android:singleLine="false"
+                    android:textOff="Hide"
+                    android:textOn="Show Bisexual" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
