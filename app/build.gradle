@@ -1,9 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+        }
+    }
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
-
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "com.app.k2app"
         minSdkVersion 16
@@ -11,7 +14,6 @@ android {
         versionCode 1
         versionName "Gpceta"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -22,20 +24,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //Support
-    //Android Material Design
-    //Universal Image Loader
-    //Volley
-    //Show images with crop circle and radio border
-    // RecyclerView Divider Contacts
-    //Android Image Slider
-    //compile 'com.squareup.picasso:picasso:2.5.2'
-    //compile 'com.daimajia.slider:library:1.1.5@aar' //falhou
-    //
     // Google Sing in
-    //compile 'com.google.android.gms:play-services:7.5.0'
-    //compile 'com.google.android.gms:play-services-identity:7.3.0'
-    //compile 'com.google.android.gms:play-services-plus:7.3.0'
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
@@ -47,8 +36,4 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.0.9@aar'
-    compile 'com.google.android.gms:play-services:8.4.0'
-    compile 'com.google.android.gms:play-services-ads:8.4.0'
-    compile 'com.google.android.gms:play-services-gcm:8.4.0'
-    compile 'com.google.android.gms:play-services-auth:8.4.0'
 }

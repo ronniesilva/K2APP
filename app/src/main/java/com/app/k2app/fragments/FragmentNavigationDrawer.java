@@ -33,7 +33,6 @@ import com.app.k2app.JSON.ParserMenuDraw;
 import com.app.k2app.R;
 import com.app.k2app.activities.ActivityAbout;
 import com.app.k2app.activities.ActivityFilters;
-import com.app.k2app.activities.ActivityLogin;
 import com.app.k2app.activities.ActivityMain;
 import com.app.k2app.activities.ActivitySettings;
 import com.app.k2app.adapters.AdapterMenuDrawer;
@@ -171,8 +170,6 @@ public class FragmentNavigationDrawer extends Fragment {
                         startActivity(new Intent(getActivity(), ActivityAbout.class));
                         break;
                     case 4: //Disconnect
-                        Log.i(Config.TAG, "FragmentNavDrawer mGoogleClient: " + ActivityLogin.mGoogleApiClient.isConnected());
-                        ActivityLogin.signOutFromGplus();
                         ActivityMain.activityMain.finish();
                         break;
 

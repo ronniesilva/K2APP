@@ -19,7 +19,6 @@ import com.app.k2app.adapters.AdapterViewPagerMain;
 import com.app.k2app.config.Config;
 import com.app.k2app.fragments.FragmentNavigationDrawer;
 import com.app.k2app.views.SlidingTabLayout;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ActivityMain extends ActionBarActivity {
     public static Activity activityMain;

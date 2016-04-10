@@ -19,5 +19,7 @@ public class Config {
      *  DNS do servidor tomcat
      */
     public static final String K2WEBSERVER = "http://192.168.0.4:8080";
+    //public static final String K2WEBSERVER = "http://172.20.101.204:8080";
+
 
 }
