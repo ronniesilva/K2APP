@@ -2,15 +2,15 @@ package com.app.k2app.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.k2app.R;
 
-public class ActivityAbout extends ActionBarActivity {
+public class ActivityAbout extends AppCompatActivity  {
 
-    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,13 @@ public class ActivityAbout extends ActionBarActivity {
         setContentView(R.layout.activity_about);
 
         // Creating The Toolbar and setting it as the Toolbar for the activity
-        mToolbar = (Toolbar) findViewById(R.id.tb_about);
-        mToolbar.setLogo(R.mipmap.ic_action_k2pio);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.tb_about);
+        try{
+            mToolbar.setLogo(R.mipmap.ic_action_k2pio);
+        }catch (Exception e){
+
+        }
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
