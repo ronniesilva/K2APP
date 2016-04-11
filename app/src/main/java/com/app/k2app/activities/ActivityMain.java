@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.app.k2app.R;
 import com.app.k2app.adapters.AdapterViewPagerMain;
@@ -20,7 +19,7 @@ import com.app.k2app.config.Config;
 import com.app.k2app.fragments.FragmentNavigationDrawer;
 import com.app.k2app.views.SlidingTabLayout;
 
-public class ActivityMain extends ActionBarActivity {
+public class ActivityMain extends AppCompatActivity {
     public static Activity activityMain;
     private static Integer userId;
 

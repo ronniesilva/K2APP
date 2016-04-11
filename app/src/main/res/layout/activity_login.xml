@@ -41,6 +41,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="20dp"
                 android:gravity="center">
+
                 <ImageView
                     android:id="@+id/ivK2pioLogo"
                     android:layout_width="wrap_content"
@@ -58,13 +59,40 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Google Button login -->
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/btn_google_sign_in"
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="50dp" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
+            <!-- Google Button login -->
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/btn_google_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="50dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:id="@+id/btn_google_sign_out"
+                android:visibility="gone" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="revoke"
+                android:id="@+id/btn_google_revoke" />
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
     </RelativeLayout>

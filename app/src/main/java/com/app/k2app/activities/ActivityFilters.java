@@ -1,15 +1,11 @@
 package com.app.k2app.activities;
 
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -21,7 +17,7 @@ import com.app.k2app.config.Config;
 import com.app.k2app.config.Params;
 import com.app.k2app.utils.RangeSeekBar;
 
-public class ActivityFilters extends ActionBarActivity {
+public class ActivityFilters extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private RadioButton rbPostAll;
