@@ -16,10 +16,13 @@ public class Config {
     public static final String SHARED_FILTERS_BI = "Filter_ToggleButton_Bi";
 
     /*
-     *  DNS do servidor tomcat
+     *  DNS do servidor Wildfly
      */
-    public static final String K2WEBSERVER = "http://192.168.0.4:8080";
-    //public static final String K2WEBSERVER = "http://172.20.101.204:8080";
 
+    // OPENSHIFT
+    public static final String K2WEBSERVER = "http://ws-k2pio.rhcloud.com:80";
+
+    //MACBOOK
+    //public static final String K2WEBSERVER = "http://192.168.0.4:8080";
 
 }

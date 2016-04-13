@@ -4,9 +4,14 @@ public class Params {
 
     public static Integer USERID;
 
-    public static final String WsBaseDir = "/k2ws-vraptor";
-    public static final String WsDirPhotoPerfil = "/k2/img/perfil";
-    public static final String WsDirPostImage = "/k2/img/post";
+    /* dominio localhost */
+    //public static final String WsBaseDir = "/ws";
+
+    /* dominio Openshift */
+    public static final String WsBaseDir = "";
+
+    public static final String WsDirPhotoPerfil = "/images/perfil";
+    public static final String WsDirPostImage = "/images/post";
 
     public static final Integer ID_MIN_TOTAL = 18;
     public static final Integer ID_MAX_TOTAL = 120;
