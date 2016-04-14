@@ -1,8 +1,14 @@
 package com.app.k2app.config;
 
+/**
+ *
+ *  Neste arquivo de Parâmetros ficarão configurações
+ *  que serão recebidas do banco de dados.
+ *
+ *  Atenção: Esse arquivo depois não existirá
+ *
+ */
 public class Params {
-
-    public static Integer USERID;
 
     /* dominio localhost */
     //public static final String WsBaseDir = "/ws";

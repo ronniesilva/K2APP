@@ -1,5 +1,11 @@
 package com.app.k2app.config;
 
+/**
+ *
+ *  Neste arquivo de Config ficarão configurações FIXAS
+ *
+ */
+
 public class Config {
 
     public static final String TAG = "K2Debug";
