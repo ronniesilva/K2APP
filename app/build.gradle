@@ -34,7 +34,8 @@ dependencies {
     compile 'com.daimajia.slider:library:1.0.9@aar'
 
     // Google Play Services
-    compile 'com.google.android.gms:play-services-auth:8.4.0'
+    //compile 'com.google.android.gms:play-services-auth:8.4.0'
+    compile 'com.google.android.gms:play-services:8.1.0'
     // Google Services plugin
     apply plugin: 'com.google.gms.google-services'
 

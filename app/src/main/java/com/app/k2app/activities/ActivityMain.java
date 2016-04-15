@@ -2,6 +2,7 @@ package com.app.k2app.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Location;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.app.k2app.R;
 import com.app.k2app.adapters.AdapterViewPagerMain;
@@ -19,7 +21,14 @@ import com.app.k2app.config.Config;
 import com.app.k2app.fragments.FragmentNavigationDrawer;
 import com.app.k2app.views.SlidingTabLayout;
 
-public class ActivityMain extends AppCompatActivity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.location.LocationServices;
+
+public class ActivityMain extends AppCompatActivity  implements
+        ConnectionCallbacks, OnConnectionFailedListener {
     public static Activity activityMain;
     private static Integer userId;
 
@@ -29,6 +38,16 @@ public class ActivityMain extends AppCompatActivity {
     // Declaring Your View and Variables
     ViewPager viewpager;
     SlidingTabLayout tabs;
+
+    /**
+     * Provides the entry point to Google Play services.
+     */
+    protected GoogleApiClient mGoogleApiClient;
+
+    /**
+     * Represents a geographical location.
+     */
+    protected Location mLastLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +61,19 @@ public class ActivityMain extends AppCompatActivity {
         setupDrawer();
 
         userId = 1;
+
+        buildGoogleApiClient();
+    }
+
+    /**
+     * Builds a GoogleApiClient. Uses the addApi() method to request the LocationServices API.
+     */
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
     }
 
     public Integer getUserId(){
@@ -51,8 +83,6 @@ public class ActivityMain extends AppCompatActivity {
     private void setupToolbar() {
         // Creating The Toolbar and setting it as the Toolbar for the activity
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        //mToolbar.setTitle("K2PIO");
-        //mToolbar.setSubtitle("just a subtitle");
         mToolbar.setLogo(R.mipmap.ic_action_k2pio);
         setSupportActionBar(mToolbar);
 
@@ -84,7 +114,6 @@ public class ActivityMain extends AppCompatActivity {
 
         // Setting the ViewPager For the SlidingTabsLayout
         tabs.setViewPager(viewpager);
-
     }
 
     private void setupDrawer(){
@@ -93,7 +122,6 @@ public class ActivityMain extends AppCompatActivity {
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
 
         fragmentNavigationDrawer.setUp(R.id.fragment_navigation_drawer,(DrawerLayout) findViewById(R.id.drawer_layout), this.mToolbar);
-
     }
 
     @Override
@@ -125,6 +153,7 @@ public class ActivityMain extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(Config.TAG, "ActivityMain onStart");
+        mGoogleApiClient.connect();
     }
 
     @Override
@@ -144,6 +173,9 @@ public class ActivityMain extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i(Config.TAG, "ActivityMain onStop");
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
     }
 
     @Override
@@ -151,6 +183,40 @@ public class ActivityMain extends AppCompatActivity {
         super.onDestroy();
         Log.i(Config.TAG, "ActivityMain onDESTROY");
     }
+
+    /**
+     * Runs when a GoogleApiClient object successfully connects.
+     */
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        // Provides a simple way of getting a device's location and is well suited for
+        // applications that do not require a fine-grained location and that do not need location
+        // updates. Gets the best and most recent location currently available, which may be null
+        // in rare cases when a location is not available.
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        if (mLastLocation != null) {
+            Toast.makeText(this, "Lat: "+ mLastLocation.getLatitude()+"\nLong: "+mLastLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Nenhuma localização detectada", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
+        // onConnectionFailed.
+        Log.i(Config.TAG, "Connection failed: " + result.getErrorCode());
+        Toast.makeText(this, "Connection failed: " + result.getErrorCode(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onConnectionSuspended(int cause) {
+        // The connection to Google Play services was lost for some reason. We call connect() to
+        // attempt to re-establish the connection.
+        Log.i(Config.TAG, "Connection suspended");
+        mGoogleApiClient.connect();
+    }
+
 
     /**
      * IMPORTANTE:

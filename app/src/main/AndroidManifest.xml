@@ -4,6 +4,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--
+    Android has two location request settings: {@code ACCESS_COARSE_LOCATION} and
+    {@code ACCESS_FINE_LOCATION}. These settings control the accuracy of the current location. This
+    sample uses ACCESS_COARSE_LOCATION. As a result, the location services return a location with
+    an accuracy approximately equivalent to a city block.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <!-- UIL: Necessario para capturar uma foto da camera -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
