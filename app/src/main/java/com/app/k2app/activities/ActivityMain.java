@@ -22,6 +22,7 @@ import com.app.k2app.fragments.FragmentNavigationDrawer;
 import com.app.k2app.views.SlidingTabLayout;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
@@ -49,6 +50,8 @@ public class ActivityMain extends AppCompatActivity  implements
      */
     protected Location mLastLocation;
 
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +65,33 @@ public class ActivityMain extends AppCompatActivity  implements
 
         userId = 1;
 
-        buildGoogleApiClient();
+        // First we need to check availability of play services
+        if (checkPlayServices()) {
+            buildGoogleApiClient();
+        }
     }
+
+    /**
+     * Method to verify google play services on the device
+     * */
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil
+                .isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this,
+                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "This device is not supported.", Toast.LENGTH_LONG)
+                        .show();
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
 
     /**
      * Builds a GoogleApiClient. Uses the addApi() method to request the LocationServices API.
