@@ -233,7 +233,6 @@ public class ActivityPostAdd extends ActionBarActivity {
             ActivityMain am = new ActivityMain();
             userId=am.getUserId();
 
-
             String postTxt = String.valueOf(etPostTxt.getText());
             Log.i(Config.TAG, "postTxt: " + postTxt);
 

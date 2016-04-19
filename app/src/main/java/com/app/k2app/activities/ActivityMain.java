@@ -14,11 +14,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.app.k2app.R;
 import com.app.k2app.adapters.AdapterViewPagerMain;
 
+import com.app.k2app.application.MyApplication;
 import com.app.k2app.config.Config;
 import com.app.k2app.fragments.FragmentNavigationDrawer;
+import com.app.k2app.network.VolleySingleton;
 import com.app.k2app.views.SlidingTabLayout;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -30,8 +43,11 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
+import org.json.JSONObject;
+
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 public class ActivityMain extends AppCompatActivity  implements
         ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
@@ -62,11 +78,6 @@ public class ActivityMain extends AppCompatActivity  implements
      * Represents a geographical location.
      */
     protected Location mCurrentLocation;
-
-    /**
-     * Time when the location was updated represented as a String.
-     */
-    protected String mLastUpdateTime;
 
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
 
@@ -268,8 +279,7 @@ public class ActivityMain extends AppCompatActivity  implements
         // is displayed as the activity is re-created.
         if (mCurrentLocation == null) {
             mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
-            updateLocationInWebServer(mCurrentLocation, mLastUpdateTime);
+            updateLocationInWebServer(mCurrentLocation);
         }else{
             Toast.makeText(this, "Nenhuma localização detectada", Toast.LENGTH_SHORT).show();
         }
@@ -278,7 +288,6 @@ public class ActivityMain extends AppCompatActivity  implements
          *  Importante para o LocationChanged();
          */
         startLocationUpdates();
-
     }
 
     /**
@@ -288,8 +297,7 @@ public class ActivityMain extends AppCompatActivity  implements
     public void onLocationChanged(Location location) {
         Log.i(TAG, "ActivityMain onLocationChanged()");
         mCurrentLocation = location;
-        mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
-        updateLocationInWebServer(mCurrentLocation, mLastUpdateTime);
+        updateLocationInWebServer(mCurrentLocation);
     }
 
     @Override
@@ -299,7 +307,6 @@ public class ActivityMain extends AppCompatActivity  implements
         Log.i(TAG, "Activity Connection suspended");
         mGoogleApiClient.connect();
     }
-
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {
@@ -335,11 +342,66 @@ public class ActivityMain extends AppCompatActivity  implements
     }
 
 
-    protected void updateLocationInWebServer(Location location, String date){
+    protected void updateLocationInWebServer(Location location){
 
-        Location loc = location;
-        String Date = date;
-        Toast.makeText(this, "Lat: " + loc.getLatitude()+"\nLong: " + loc.getLongitude()+"\nData: "+Date, Toast.LENGTH_SHORT).show();
+        String Filtro = "/users/location";
+        String URI = MyApplication.getWsUrlApp() + Filtro;
+        Log.i(TAG, "URL: " + URI);
+
+        Integer id = this.getUserId();
+        final Location loc = location;
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("id", String.valueOf(id));
+        params.put("lat", String.valueOf(loc.getLatitude()));
+        params.put("lon", String.valueOf(loc.getLongitude()));
+        //params.put("Content-Type", "application/json; charset=utf-8");
+
+        final String msg = "Lat: "+loc.getLatitude()+"\nLong: "+loc.getLongitude();
+
+        try{
+            // pass second argument as "null" for GET requests
+            JsonObjectRequest req = new JsonObjectRequest(Request.Method.PUT, URI, new JSONObject(params),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Integer status = response.getInt("status");
+                                Log.i(TAG, "Resposta Status JSON: " + status);
+                                if (status == 0) {
+                                    Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getBaseContext(), "Error!", Toast.LENGTH_LONG).show();
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.e("Error: ", error.getMessage());
+                    if (error instanceof TimeoutError) {
+                        Toast.makeText(getBaseContext(), "Timeout", Toast.LENGTH_LONG).show();
+                    } else if (error instanceof NoConnectionError) {
+                        Toast.makeText(getBaseContext(), "No Connection", Toast.LENGTH_LONG).show();
+                    } else if (error instanceof AuthFailureError) {
+                        Toast.makeText(getBaseContext(), "Auth Failure", Toast.LENGTH_LONG).show();
+                    } else if (error instanceof ServerError) {
+                        Toast.makeText(getBaseContext(), "Server Error", Toast.LENGTH_LONG).show();
+                    } else if (error instanceof NetworkError) {
+                        Toast.makeText(getBaseContext(), "Network Error", Toast.LENGTH_LONG).show();
+                    } else if (error instanceof ParseError) {
+                        Toast.makeText(getBaseContext(), "Parse Error", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+            // add the request object to the queue to be executed
+            VolleySingleton.getInstance().addToRequestQueue(req);
+        }catch (Exception e){
+            Log.e(TAG, "ActivityMain Error:" + e);
+        }
     }
 
     @Override
@@ -352,7 +414,6 @@ public class ActivityMain extends AppCompatActivity  implements
         }else{
             Toast.makeText(this, "Not connected...", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
