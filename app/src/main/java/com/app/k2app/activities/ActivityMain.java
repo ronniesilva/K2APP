@@ -81,7 +81,6 @@ public class ActivityMain extends AppCompatActivity  implements
      */
     public static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = UPDATE_INTERVAL_IN_MILLISECONDS / 2;
 
-
     /**
      * Distancia em metros
      */
@@ -249,59 +248,6 @@ public class ActivityMain extends AppCompatActivity  implements
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(Config.TAG, "ActivityMain onStart");
-
-        if(mGoogleApiClient!= null) {
-            mGoogleApiClient.connect();
-        }else{
-            Toast.makeText(this, "Not connected...", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(Config.TAG, "ActivityMain onResume");
-        //Log.i(Config.TAG, "ActivityMain mGoogleApiClient.isConnected() : " + ActivityLogin.mGoogleApiClient.isConnected());
-
-        if (mGoogleApiClient.isConnected()) {
-            startLocationUpdates();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(Config.TAG, "ActivityMain onPause");
-
-        // Stop location updates to save battery, but don't disconnect the GoogleApiClient object.
-        if (mGoogleApiClient.isConnected()) {
-            stopLocationUpdates();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(Config.TAG, "ActivityMain onStop");
-
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(Config.TAG, "ActivityMain onDESTROY");
-    }
-
-
     /**
      * Runs when a GoogleApiClient object successfully connects.
      */
@@ -395,6 +341,58 @@ public class ActivityMain extends AppCompatActivity  implements
         String Date = date;
         Toast.makeText(this, "Lat: " + loc.getLatitude()+"\nLong: " + loc.getLongitude()+"\nData: "+Date, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(Config.TAG, "ActivityMain onStart");
+
+        if(mGoogleApiClient!= null) {
+            mGoogleApiClient.connect();
+        }else{
+            Toast.makeText(this, "Not connected...", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(Config.TAG, "ActivityMain onResume");
+        //Log.i(Config.TAG, "ActivityMain mGoogleApiClient.isConnected() : " + ActivityLogin.mGoogleApiClient.isConnected());
+
+        if (mGoogleApiClient.isConnected()) {
+            startLocationUpdates();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(Config.TAG, "ActivityMain onPause");
+
+        // Stop location updates to save battery, but don't disconnect the GoogleApiClient object.
+        if (mGoogleApiClient.isConnected()) {
+            stopLocationUpdates();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(Config.TAG, "ActivityMain onStop");
+
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(Config.TAG, "ActivityMain onDESTROY");
+    }
+
 
     /**
      * IMPORTANTE:
